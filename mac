@@ -1,0 +1,113 @@
+#!/usr/bin/env zsh
+
+successfully() {
+  $* || (echo "\nfailed" 1>&2 && exit 1)
+}
+
+fancy_echo() {
+  echo "\n$1"
+}
+
+# Development stack
+
+if -f /etc/zshenv; then
+  fancy_echo "Fixing OSX zsh environment bug ..."
+    successfully sudo mv /etc/{zshenv,zshrc}
+fi
+
+fancy_echo "Installing Homebrew, a good OS X package manager ..."
+  successfully ruby <(curl -fsS https://raw.github.com/mxcl/homebrew/go)
+  successfully brew update
+
+fancy_echo "Installing Redis, a good key-value database ..."
+  successfully brew install redis
+
+fancy_echo "Installing The Silver Searcher (better than ack or grep) to search the contents of files ..."
+  successfully brew install the_silver_searcher
+
+fancy_echo "Installing ctags, to index files for vim tab completion of methods, classes, variables ..."
+  successfully brew install ctags
+
+fancy_echo "Installing ImageMagick, to crop and resize images ..."
+  successfully brew install imagemagick
+
+fancy_echo "Installing QT, used by Capybara Webkit for headless Javascript integration testing ..."
+  successfully brew install qt
+
+fancy_echo "Installing rbenv, to change Ruby versions ..."
+  successfully brew install rbenv
+
+  if ! grep -qs "rbenv init" ~/.zshrc; then
+    successfully echo 'eval "$(rbenv init -)"' >> ~/.zshrc
+
+    fancy_echo "Enable shims and autocompletion ..."
+      successfully eval "$(rbenv init -)"
+  fi
+
+  source ~/.zshrc
+
+fancy_echo "Installing rbenv-gem-rehash so the shell automatically picks up binaries after installing gems with binaries..."
+  successfully brew install rbenv-gem-rehash
+
+fancy_echo "Installing ruby-build, to install Rubies ..."
+  successfully brew install ruby-build
+
+fancy_echo "Installing Ruby 2.0.0-247 ..."
+  successfully rbenv install 2.0.0-p247
+
+fancy_echo "Setting Ruby 2.0.0-p247 as global default Ruby ..."
+  successfully rbenv global 2.0.0-p247
+  successfully rbenv shell 2.0.0-p247
+
+fancy_echo "Updating to latest Rubygems version ..."
+  successfully gem update --system
+
+fancy_echo "Installing critical Ruby gems for Rails development ..."
+  successfully gem install bundler foreman pg rails thin --no-document
+
+fancy_echo "Installing GitHub CLI client ..."
+  successfully gem install hub --no-document
+
+fancy_echo "Installing Heroku CLI client ..."
+  successfully brew install heroku-toolbelt
+
+fancy_echo "Installing the heroku-config plugin to pull config variables locally to be used as ENV variables ..."
+  successfully heroku plugins:install git://github.com/ddollar/heroku-config.git
+
+fancy_echo "Installing MacVim ..."
+  successfully brew install macvim
+
+# Applications not on Apple Store
+
+fancy_echo "Installing brew-cask to install Mac applications distributed as binaries..."
+  successfully brew tap phinze/homebrew-cask
+  successfully brew install brew-cask
+
+fancy_echo "Installing Google Chrome app ..."
+  successfully brew cask install google-chrome
+
+fancy_echo "Installing Spectacle app ..."
+  successfully brew cask install spectacle
+
+fancy_echo "Installing Transmission app ..."
+  successfully brew cask install transmission
+
+fancy_echo "Installing Iterm2 app ..."
+  successfully brew cask install iterm2
+
+fancy_echo "Installing Postgres app ..."
+  successfully brew cask install postgres
+
+fancy_echo "Installing Spotify app ..."
+  successfully brew cask install spotify
+
+fancy_echo "Installing VLC app ..."
+  successfully brew cask install vlc
+
+fancy_echo "Installing Libre Office app ..."
+  successfully brew cask install libre-office
+
+if ! grep -qs "DO NOT EDIT BELOW THIS LINE" ~/.zshrc; then
+  fancy_echo "Prepare ~/.zshrc for http://github.com/sush/dotfiles ..."
+    successfully echo "# DO NOT EDIT BELOW THIS LINE\n" >> ~/.zshrc
+fi
