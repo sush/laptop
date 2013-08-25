@@ -19,6 +19,9 @@ fancy_echo "Installing Homebrew, a good OS X package manager ..."
   successfully ruby <(curl -fsS https://raw.github.com/mxcl/homebrew/go)
   successfully brew update
 
+fancy_echo "Installing the last git version ..."
+  successfully brew install git
+
 fancy_echo "Installing Redis, a good key-value database ..."
   successfully brew install redis
 
