@@ -37,9 +37,6 @@ fancy_echo "Installing ctags, to index files for vim tab completion of methods, 
 fancy_echo "Installing ImageMagick, to crop and resize images ..."
   successfully brew install imagemagick
 
-fancy_echo "Installing QT, used by Capybara Webkit for headless Javascript integration testing ..."
-  successfully brew install qt
-
 fancy_echo "Installing rbenv, to change Ruby versions ..."
   successfully brew install rbenv
 
@@ -58,12 +55,12 @@ fancy_echo "Installing rbenv-gem-rehash so the shell automatically picks up bina
 fancy_echo "Installing ruby-build, to install Rubies ..."
   successfully brew install ruby-build
 
-fancy_echo "Installing Ruby 2.0.0-247 ..."
-  successfully rbenv install 2.0.0-p247
+fancy_echo "Installing Ruby 2.1.3 ..."
+  successfully rbenv install 2.1.3
 
-fancy_echo "Setting Ruby 2.0.0-p247 as global default Ruby ..."
-  successfully rbenv global 2.0.0-p247
-  successfully rbenv shell 2.0.0-p247
+fancy_echo "Setting Ruby 2.1.3 as global default Ruby ..."
+  successfully rbenv global 2.1.3
+  successfully rbenv shell 2.1.3
 
 fancy_echo "Updating to latest Rubygems version ..."
   successfully gem update --system
@@ -80,9 +77,6 @@ fancy_echo "Installing GitHub CLI client ..."
 
 fancy_echo "Installing Heroku CLI client ..."
   successfully brew install heroku-toolbelt
-
-fancy_echo "Installing the heroku-config plugin to pull config variables locally to be used as ENV variables ..."
-  successfully heroku plugins:install git://github.com/ddollar/heroku-config.git
 
 fancy_echo "Installing MacVim ..."
   successfully brew install macvim
@@ -117,8 +111,11 @@ fancy_echo "Installing VLC app ..."
 fancy_echo "Installing Libre Office app ..."
   successfully brew cask install libre-office
 
-fancy_echo "Installing Mou app ..."
-  successfully brew cask install mou
+fancy_echo "Installing MacDown app ..."
+  successfully brew cask install macdown
+
+fancy_echo "Installing AppCleaner app ..."
+  successfully brew cask install appcleaner
 
 if ! grep -qs "DO NOT EDIT BELOW THIS LINE" ~/.zshrc; then
   fancy_echo "Prepare ~/.zshrc for http://github.com/sush/dotfiles ..."
