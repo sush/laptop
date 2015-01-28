@@ -117,6 +117,9 @@ fancy_echo "Installing MacDown app ..."
 fancy_echo "Installing AppCleaner app ..."
   successfully brew cask install appcleaner
 
+fancy_echo "Installing Alfred2 app ..."
+  successfully brew cask install alfred
+
 if ! grep -qs "DO NOT EDIT BELOW THIS LINE" ~/.zshrc; then
   fancy_echo "Prepare ~/.zshrc for http://github.com/sush/dotfiles ..."
     successfully echo "# DO NOT EDIT BELOW THIS LINE\n" >> ~/.zshrc
