@@ -40,9 +40,6 @@ fancy_echo "Installing ctags, to index files for vim tab completion of methods, 
 fancy_echo "Installing ImageMagick, to crop and resize images ..."
   successfully brew install imagemagick
 
-fancy_echo "Installing Golanf..."
-  successfully brew install go
-
 fancy_echo "Installing rbenv, to change Ruby versions ..."
   successfully brew install rbenv
 
@@ -68,6 +65,12 @@ fancy_echo "Setting Ruby 2.2.2 as global default Ruby ..."
   successfully rbenv global 2.2.2
   successfully rbenv shell 2.2.2
 
+fancy_echo "Installing Golang..."
+  successfully brew install go
+
+fancy_echo "Installing Elixir..."
+  successfully brew install elixir
+
 fancy_echo "Updating to latest Rubygems version ..."
   successfully gem update --system
 
@@ -86,6 +89,9 @@ fancy_echo "Installing Heroku CLI client ..."
 
 fancy_echo "Installing MacVim ..."
   successfully brew install macvim
+
+fancy_echo "Installing Wget..."
+  successfully brew install wget
 
 # Applications not on Apple Store
 
