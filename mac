@@ -9,7 +9,6 @@ fancy_echo() {
 }
 
 # Development stack
-
 if -f /etc/zshenv; then
   fancy_echo "Fixing OSX zsh environment bug ..."
     successfully sudo mv /etc/{zshenv,zshrc}
@@ -94,13 +93,12 @@ fancy_echo "Installing Wget..."
   successfully brew install wget
 
 # Applications not on Apple Store
-
 fancy_echo "Installing brew-cask to install Mac applications distributed as binaries..."
   successfully brew tap phinze/homebrew-cask
   successfully brew install brew-cask
 
-fancy_echo "Installing Google Chrome app ..."
-  successfully brew cask install google-chrome
+# Change Homebrew cask installation dir
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 fancy_echo "Installing Spectacle app ..."
   successfully brew cask install spectacle
