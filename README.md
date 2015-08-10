@@ -10,4 +10,4 @@ Requirements
 Install
 -------
 
-    zsh <(curl -s https://raw.github.com/sush/laptop/master/mac)
+    zsh <(curl -s https://raw.githubusercontent.com/sush/laptop/master/mac)
