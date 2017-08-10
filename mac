@@ -30,9 +30,6 @@ fancy_echo "Installing The Silver Searcher (better than ack or grep) to search t
 fancy_echo "Installing tree to recursively list directories ..."
   successfully brew install tree
 
-fancy_echo "Installing boot2docker ..."
-  successfully brew install boot2docker
-
 fancy_echo "Installing ctags, to index files for vim tab completion of methods, classes, variables ..."
   successfully brew install ctags
 
@@ -112,6 +109,9 @@ fancy_echo "Installing Iterm2 app ..."
 fancy_echo "Installing Postgres app ..."
   successfully brew cask install postgres
 
+fancy_echo "Installing Postico app ..."
+  successfully brew cask install postico
+
 fancy_echo "Installing Spotify app ..."
   successfully brew cask install spotify
 
@@ -127,8 +127,11 @@ fancy_echo "Installing MacDown app ..."
 fancy_echo "Installing AppCleaner app ..."
   successfully brew cask install appcleaner
 
-fancy_echo "Installing Alfred2 app ..."
+fancy_echo "Installing Alfred app ..."
   successfully brew cask install alfred
+
+fancy_echo "Installing f.lux app ..."
+  successfully brew cask install flux
 
 if ! grep -qs "DO NOT EDIT BELOW THIS LINE" ~/.zshrc; then
   fancy_echo "Prepare ~/.zshrc for http://github.com/sush/dotfiles ..."
