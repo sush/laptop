@@ -48,18 +48,15 @@ fancy_echo "Installing rbenv, to change Ruby versions ..."
 
   source ~/.zshrc
 
-fancy_echo "Installing rbenv-gem-rehash so the shell automatically picks up binaries after installing gems with binaries..."
-  successfully brew install rbenv-gem-rehash
-
 fancy_echo "Installing ruby-build, to install Rubies ..."
   successfully brew install ruby-build
 
-fancy_echo "Installing Ruby 2.2.2 ..."
-  successfully rbenv install 2.2.2
+fancy_echo "Installing Ruby 2.4.1 ..."
+  successfully rbenv install 2.4.1
 
-fancy_echo "Setting Ruby 2.2.2 as global default Ruby ..."
-  successfully rbenv global 2.2.2
-  successfully rbenv shell 2.2.2
+fancy_echo "Setting Ruby 2.4.1 as global default Ruby ..."
+  successfully rbenv global 2.4.1
+  successfully rbenv shell 2.4.1
 
 fancy_echo "Installing Golang..."
   successfully brew install go
@@ -89,10 +86,13 @@ fancy_echo "Installing MacVim ..."
 fancy_echo "Installing Wget..."
   successfully brew install wget
 
+fancy_echo "Installing Wget..."
+  successfully brew install fzf
+  successfully /usr/local/opt/fzf/install
+
 # Applications not on Apple Store
 fancy_echo "Installing brew-cask to install Mac applications distributed as binaries..."
   successfully brew tap phinze/homebrew-cask
-  successfully brew install brew-cask
 
 # Change Homebrew cask installation dir
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
@@ -119,7 +119,7 @@ fancy_echo "Installing VLC app ..."
   successfully brew cask install vlc
 
 fancy_echo "Installing Libre Office app ..."
-  successfully brew cask install libre-office
+  successfully brew cask install libreoffice
 
 fancy_echo "Installing MacDown app ..."
   successfully brew cask install macdown
