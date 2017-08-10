@@ -15,7 +15,7 @@ if -f /etc/zshenv; then
 fi
 
 fancy_echo "Installing Homebrew, a good OS X package manager ..."
-  successfully ruby <(curl -fsS https://raw.github.com/mxcl/homebrew/go)
+  successfully ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   successfully brew update
 
 fancy_echo "Installing the last git version ..."
